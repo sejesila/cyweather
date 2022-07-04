@@ -7,29 +7,34 @@ setInterval(() => {
     let time = new Date()
     let month = time.getMonth()
     let date = time.getDate()
+    let day = time.getDay()
     let hours = time.getHours() 
     let hoursIn12HrFomart = hours>= 13 ? hours % 12 : hours
     let minutes = time.getMinutes()
     let ampm = hours >= 12 ? 'PM' : 'AM'
 
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    const months = ['Jan','Feb','March','April','May','June','July','August','Sept','Oct','Nov','Dec']
+
+
     timeEl.innerHTML = (hoursIn12HrFomart <10 ? "0" + hoursIn12HrFomart : hoursIn12HrFomart) + ':' + ( minutes < 10 ? "0" + minutes : minutes) + `<span id='am-pm'>${ampm}</span>`
+    dateEl.innerHTML = days[day] + ',' +date+ ' ' + months[month]
    
 }, 1000)
 getHourlyWeatherData()
 function getHourlyWeatherData() {
     navigator.geolocation.getCurrentPosition((success) => {
-        console.log(success)
 
         let { latitude, longitude } = success.coords
 
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,cloudcover_mid,windspeed_120m&timezone=Africa%2FNairobi&current_weather=true`).then(res => res.json()).then(data => {
-            console.log(data)
+            //console.log(data)
             showHourlyData(data)
         })
     })
 }
 function showHourlyData(data) {
-    let { temperature, windspeed, humidity, cloudcover } = data.current_weather
+    let { temperature, windspeed} = data.current_weather
         
     currentWeatherItems.innerHTML = 
     `<div class="weather-item" >
@@ -38,7 +43,7 @@ function showHourlyData(data) {
         <div>${temperature} &#176;C</div>
     </div>
     <div class="weather-item">  
-        <div>Wind speed</div>
+        <div>Wind speed </div>
         <div>${windspeed} km/hr</div>
     </div>
 
@@ -49,11 +54,7 @@ function showHourlyData(data) {
         
         let time_data = data.hourly.time[x]
         time_data = moment.utc(time_data).format("HH")
-        console.log(time_data)
-        // exract time from the iso_date_time_data
        //let time_data = iso_date_time_data.substring(11, 16)
-    
-       console.log(time_data.getHours)
         let timeIn12HrFomart = time_data >= 13 ? time_data % 12 : time_data
 
         let ampm =time_data>= 12 ? 'PM' : 'AM'
@@ -65,11 +66,22 @@ function showHourlyData(data) {
 
         hourlyWeatherData.innerHTML += ` <div class="weather-forecast-item">
             <div class="hour"> ${(time_data > 12 ? "0" + timeIn12HrFomart : timeIn12HrFomart)}  <span id='am-pm'>${ampm}</span></div>
-            <img alt="temp icon" src="">
+            <div class="test">
+             <i class="fa fa-thermometer-half" aria-hidden="true"></i>
             <div class="temp">${temp_data} &#176;C</div>
-            <div class="wind-speed">${wind_data} km/hr</div>
+            </div>
+            <div class="test wind-speed">
+            <i class="fas fa-wind"></i>
+            <div class="">${wind_data} </div>
+            </div>
+            <div class="test">
+            <img src="images/humidity.png"/>
             <div class="humidity">${humidity_data} &#37;</div>
+            </div>
+            <div class="test">
+            <i class="fa-solid fa-cloud"></i>
             <div class="cloud-cover">${cloud_data} &#37;</div>
+            </div>
         </div>` 
   
     }

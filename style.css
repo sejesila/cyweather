@@ -8,17 +8,20 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: brown;
+    background-color: #da5555;
 }
 
 .container {
-    padding: 20px 70px;
+    padding: 20px 60px;
     color: #ffffff;
+    background: chartreuse;
+
+
 }
 
 .current-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -36,10 +39,10 @@ body {
     font-size: 30px;
 }
 
-.wrapper {
+/* .wrapper {
     display: flex;
     flex-direction: row;
-}
+} */
 
 .current-info .other-weather-items {
     display: flex;
@@ -74,12 +77,23 @@ body {
 .future-forecast .weather-forecast-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     margin: 0 5px;
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 10px;
+    
+}
+.center {
+    margin: auto;
+    width: 50%;
+   
+    padding: 10px;
+    }
+.test .wind-speed{
+    align-items: center;
+    /* justify-content: space-around; */
 }
 
 .future-forecast .weather-forecast-item .hour {
@@ -90,9 +104,9 @@ body {
 }
 
 .input-part :where(input,button) {
-    width: 100%;
+    /* width: 50%; */
     height: 45px;
-    border: none;
+    border: 4px solid #3329c4;
     outline: none;
     font-size: 18px;
     border-radius: 7px;
@@ -100,7 +114,7 @@ body {
 
 .input-part input {
     text-align: center;
-    border: 1px solid #bfbfbf;
+    border: 3px solid #df2626;
 }
 
 .input-part .separator {
@@ -129,13 +143,27 @@ body {
 /* On screens that are between 320px to 520px */
 @media only screen and (min-width:320px) and (max-width:520px) {
     .container{
-        padding: 20px;
+        padding: 40px;
+        /*height: 50vh;*/
+    }
+    .current-info {
+        display: flex;
+        justify-content: space-between;
+        /*flex-wrap: wrap;*/
+    }
+    .wrapper{
+        display: none;
     }
     .future-forecast {
-        justify-content: start;
-        align-items: none;
-        overflow-x: scroll;
+        /* align-items: none; */
+        position: absolute;
+        height: 40vh;
+        bottom: 0;
 
+    }
+    .future-forecast .weather-forecast-item {
+       
+        width: 100px;
     }
     .date-container .time{
         font-size: 50px;
@@ -153,7 +181,7 @@ body {
 @media only screen and (max-width : 2140px) {
     .future-forecast{
         justify-content: start;
-        align-items: none;
+        /* align-items: none; */
         overflow-x: scroll;
     }
 }
@@ -161,5 +189,5 @@ body {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    justify-content: space-around;
+    justify-content: space-between;
 }

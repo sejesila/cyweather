@@ -43,8 +43,8 @@ function showHourlyData(data) {
         <div>${temperature} &#176;C</div>
     </div>
     <div class="weather-item">  
-        <div>Wind speed </div>
-        <div>${windspeed} km/hr</div>
+        <div>Windspeed &nbsp;</div>
+        <div>${windspeed}km/h</div>
     </div>
 
    
@@ -72,7 +72,7 @@ function showHourlyData(data) {
             </div>
             <div class="test wind-speed">
             <i class="fas fa-wind"></i>
-            <div class="">${wind_data} </div>
+            <div class="">${wind_data}km/h</div>
             </div>
             <div class="test">
             <img src="images/humidity.png"/>

@@ -14,10 +14,10 @@ body {
 .container {
     padding: 20px 60px;
     color: #ffffff;
-    background: chartreuse;
-
-
+    background: #426123;
+    height: 63vh;
 }
+
 
 .current-info {
     display: flex;
@@ -36,13 +36,8 @@ body {
 }
 
 .date-container .date {
-    font-size: 30px;
+    font-size: 25px;
 }
-
-/* .wrapper {
-    display: flex;
-    flex-direction: row;
-} */
 
 .current-info .other-weather-items {
     display: flex;
@@ -56,7 +51,8 @@ body {
 
 .current-info .other-weather-items .weather-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 5px;
 }
 
 .future-forecast {
@@ -140,11 +136,22 @@ body {
     cursor: pointer;
     background: blueviolet;
 }
+.future-forecast .weather-forecast-item:hover {
+    transform: scale(1.1) ;
+    -ms-transform: scale(1.1);
+    background: #006A5B;
+    /*color: #1f61b5;*/
+    -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+    transition: .5s ease-in-out ;
+
+}
 /* On screens that are between 320px to 520px */
 @media only screen and (min-width:320px) and (max-width:520px) {
     .container{
+        background-color: #222831;
         padding: 40px;
-        /*height: 50vh;*/
+        height: 50vh;
     }
     .current-info {
         display: flex;
@@ -155,10 +162,10 @@ body {
         display: none;
     }
     .future-forecast {
-        /* align-items: none; */
         position: absolute;
         height: 40vh;
         bottom: 0;
+        padding: 10px;
 
     }
     .future-forecast .weather-forecast-item {
@@ -181,7 +188,6 @@ body {
 @media only screen and (max-width : 2140px) {
     .future-forecast{
         justify-content: start;
-        /* align-items: none; */
         overflow-x: scroll;
     }
 }

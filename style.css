@@ -78,7 +78,7 @@ body {
     margin: 0 5px;
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 10px;
+    padding: 4px;
     
 }
 .center {
@@ -99,6 +99,12 @@ body {
     text-align: center;
 }
 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .input-part :where(input,button) {
     /* width: 50%; */
     height: 45px;
@@ -110,7 +116,7 @@ body {
 
 .input-part input {
     text-align: center;
-    border: 3px solid #df2626;
+    border: 3px solid #0b433a;
 }
 
 .input-part .separator {
@@ -146,6 +152,7 @@ body {
     transition: .5s ease-in-out ;
 
 }
+
 /* On screens that are between 320px to 520px */
 @media only screen and (min-width:320px) and (max-width:520px) {
     .container{
@@ -156,14 +163,13 @@ body {
     .current-info {
         display: flex;
         justify-content: space-between;
-        /*flex-wrap: wrap;*/
+        flex-wrap: wrap;
     }
     .wrapper{
-        display: none;
+        /*display: none;*/
     }
     .future-forecast {
         position: absolute;
-        height: 40vh;
         bottom: 0;
         padding: 10px;
 
@@ -178,11 +184,28 @@ body {
     .date-container #am-pm{
         font-size: 20px;
     }
-
     .date-container .date{
         font-size: 20px;
     }
-
+    .current-info .other-weather-items{
+        display: none;
+    }
+    .current-conditions{
+        display: none;
+    }
+    .input-part :where(input,button) {
+        height: 45px;
+        border: 4px solid #3329c4;
+        outline: none;
+        border-radius: 7px;
+    }
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
 
 }
 @media only screen and (max-width : 2140px) {

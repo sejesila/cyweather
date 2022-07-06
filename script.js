@@ -127,19 +127,19 @@ function showHourlyData(data) {
 
         hourlyWeatherData.innerHTML += ` <div class="weather-forecast-item">
             <div class="hour"> ${(time_data > 12 ? "0" + timeIn12HrFomart : timeIn12HrFomart)}  <span id='am-pm'>${ampm}</span></div>
-            <div class="test">
+            <div class="each-weather-item">
              <i class="fa fa-thermometer-half" aria-hidden="true"></i>
             <div class="temp">${temp_data} &#176;C</div>
             </div>
-            <div class="test wind-speed">
+            <div class="each-weather-item wind-speed">
             <i class="fas fa-wind"></i>
             <div class="">${wind_data}km/h</div>
             </div>
-            <div class="test">
+            <div class="each-weather-item">
             <img src="images/humidity.png"/>
             <div class="humidity">${humidity_data} &#37;</div>
             </div>
-            <div class="test">
+            <div class="each-weather-item">
             <i class="fa-solid fa-cloud"></i>
             <div class="cloud-cover">${cloud_data} &#37;</div>
             </div>
